@@ -1,23 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
+import Inicio from './components/Inicio';
+import Personaje from './components/Personaje';
+import Vista from './components/Vista';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
+
+
 
 function App() {
+  const [verPer, setVerPer] = useState(false);
+  const [verPdf, setVerPdf] = useState(false);
+
+  const Menu = () =>{
+    return (
+    <nav class='nav'>
+      <button type="button" class="btn btn-primary"
+        onClick={()=>{
+          setVerPer(!verPer);        
+        }}
+      >
+      {verPer ? "Ocultar Lista" : "Ver lista"}</button>
+      <button type="button" class="btn btn-dark"
+        onClick={()=>{
+          setVerPdf(!verPdf);
+        }}
+      >{verPdf ? "Ocultar": " PDF"}</button>
+      {/* <Button>Descargar PDF</Button> */}
+    </nav>
+    )
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <Menu/>
+      <BrowserRouter>
+        <Routes>
+          {verPer ? <Route path='/'element ={<Inicio></Inicio>}></Route>: null}
+          <Route path='/persona/:id'element={<Personaje></Personaje>}></Route>
+        </Routes>
+      </BrowserRouter>
+      {verPdf ? <Vista/>: null}
+
     </div>
   );
 }
