@@ -9,26 +9,27 @@ const Inicio = ()=> {
     },[]) 
 
     return(
-        <>          
-                        <table class="table table-dark table-striped table-hover table-bordered">
-                            <thead>
-                                <tr scope='col'>
-                                    {/* <th scope="col">Id</th> */}
-                                    <th>Id usuario</th>                                    
-                                    <th>Nombre usuario</th>                                    
-                                </tr>
-                            </thead>
-                            <tbody>                                
-                                {personas != null ? (
-                                     personas.map(persona => (
-                                        <tr  scope ='row' key={persona.id}>
-                                            <td><a href={`/persona/${persona.id}`}>{persona.resource.id}</a></td>
-                                            <td><a href={`/persona/${persona.id}`}>{persona.resource.name.use}</a></td>
-                                        </tr>
-                                    ))
-                                ) : ('no hay persona')};                                
-                            </tbody>
-                        </table>
+        <>  
+            <br/>          
+            <table class="table table-dark table-striped table-hover table-bordered">
+                <thead>
+                    <tr scope='col'>
+                        {/* <th scope="col">Id</th> */}
+                        <th>Id usuario</th>                                    
+                        <th>Nombre usuario</th>                                    
+                    </tr>
+                </thead>
+                <tbody>                                
+                    {personas != null ? (
+                        personas.map(persona => (
+                        <tr  scope ='row' key={persona.id}>
+                            <td><a href={`/persona/${persona.id}`}>{persona.resource.id}</a></td>
+                            <td><a href={`/persona/${persona.id}`}>{persona.resource.name.given}</a></td>
+                        </tr>
+                        ))
+                    ) : ('no hay persona')};                                
+                </tbody>
+            </table>
         </>
     )
 }

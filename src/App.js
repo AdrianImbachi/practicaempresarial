@@ -4,8 +4,6 @@ import Personaje from './components/Personaje';
 import Vista from './components/Vista';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
-
-
 function App() {
   const [verPer, setVerPer] = useState(false);
   const [verPdf, setVerPdf] = useState(false);
@@ -24,12 +22,14 @@ function App() {
           setVerPdf(!verPdf);
         }}
       >{verPdf ? "Ocultar": " PDF"}</button>
+      
       {/* <Button>Descargar PDF</Button> */}
     </nav>
     )
   };
   return (
     <div className="container">
+      <br/>
       <Menu/>
       <BrowserRouter>
         <Routes>

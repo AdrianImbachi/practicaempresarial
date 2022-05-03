@@ -38,12 +38,12 @@ function Vista() {
         }
       }
       else{
-        setPdfError('Not a valid pdf: Please select only PDF');
+        setPdfError('PDF no válido: Por favor selecciones archivos con extensión PDF');
         setPdfFile('');
       }
     }
     else{
-      console.log('please select a PDF');
+      console.log('Por favor seleccione un PDF');
     }
   }
 
@@ -53,7 +53,7 @@ function Vista() {
       {/* Upload PDF */}
       <form>
 
-        <label><h5>Upload PDF</h5></label>
+        <label><h5>Subir PDF</h5></label>
         <br></br>
 
         <input type='file' className="form-control"
@@ -66,7 +66,7 @@ function Vista() {
       </form>
 
       {/* View PDF */}
-      <h5>View PDF</h5>
+      <h5>Vista PDF</h5>
       <div className="viewer">
 
         {/* render this if we have a pdf file */}
@@ -78,7 +78,7 @@ function Vista() {
         )}
 
         {/* render this if we have pdfFile state null   */}
-        {!pdfFile&&<>No file is selected yet</>}
+        {!pdfFile&&<>No existe archivo seleccionado</>}
 
       </div>
 
