@@ -9,13 +9,13 @@ const todasPersonas = async (state) => {
     const peticion = await axios.get('https://r3.smarthealthit.org/Patient/');
     // state(peticion.data.entry);
     state(peticion.data.entry);
-    console.log(peticion);
+    // console.log(peticion.data.entry[0].resource.name[1]);
 }
-const unicaPersona = async (fullUrl, state) => {
+const unicaPersona = async (id, state) => {
     // const peticion = await axios.get(`https://rickandmortyapi.com/api/character/${id}`);
-    const peticion = await axios.get(`https://r3.smarthealthit.org/Patient/_search?_format=json?entry.resource.fullUrl=${fullUrl}`);
-    state(peticion.data);
-    console.log(peticion)
+    const peticion = await axios.get(`https://r3.smarthealthit.org/Patient/${id}`);
+    state(peticion.data.name[1]);
+    console.log(peticion.data.name[1])
 }
 
 export {

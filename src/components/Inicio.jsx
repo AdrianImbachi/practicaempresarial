@@ -1,4 +1,5 @@
-import React, {useEffect, useState} from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { todasPersonas } from "./Pos";
 
 const Inicio = ()=> {
@@ -23,8 +24,8 @@ const Inicio = ()=> {
                     {personas != null ? (
                         personas.map(persona => (
                         <tr  scope ='row' key={persona.id}>
-                            <td><a href={`/persona/${persona.id}`}>{persona.resource.id}</a></td>
-                            <td><a href={`/persona/${persona.id}`}>{persona.resource.name.given}</a></td>
+                            <td><a href={`/persona/${persona.resource.id}`}>{persona.resource.id}</a></td>
+                            <td><a href={`/persona/${persona.resource.id}`}>{persona.resource.name.given}</a></td>
                         </tr>
                         ))
                     ) : ('no hay persona')};                                

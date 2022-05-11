@@ -8,12 +8,16 @@ const Personaje = () => {
     const params = useParams()
 
     useEffect(() => {
-        unicaPersona(params.fullUrl, setPersona)
+        unicaPersona(params.id, setPersona)
     }, [])
     return (
         <>
             {persona != null ? (
-                <h2>Nombre: {params.fullUrl}</h2>
+                <div>
+                    <h2>ID: {params.id}</h2>
+                    <p>Con el nombre: {persona.family}</p>
+                </div>
+                
             ) : ('No hay personas')} 
         </>
 
