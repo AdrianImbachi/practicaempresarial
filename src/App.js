@@ -3,6 +3,8 @@ import Inicio from './components/Inicio';
 import Personaje from './components/Personaje';
 import Vista from './components/Vista';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import { UserPage } from './components/UserPage';
+import { UserNamePage } from './components/UserNamePage';
 
 function App() {
   const [verPer, setVerPer] = useState(false);
@@ -35,9 +37,12 @@ function App() {
         <Routes>
           {verPer ? <Route path='/'element ={<Inicio></Inicio>}></Route>: null}
           <Route path='/persona/:id'element={<Personaje></Personaje>}></Route>
+          {/* <Route path='/persona/:id'element={<Personaje></Personaje>}></Route> */}
         </Routes>
       </BrowserRouter>
       {verPdf ? <Vista/>: null}
+
+      {/* <UserPage/> */}
 
     </div>
   );
