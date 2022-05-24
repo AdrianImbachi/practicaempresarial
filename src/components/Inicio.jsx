@@ -1,4 +1,3 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { todasPersonas } from "./Pos";
 
@@ -12,7 +11,7 @@ const Inicio = ()=> {
     return(
         <>  
             <br/>          
-            <table class="table table-dark table-striped table-hover table-bordered">
+            <table className="table table-dark table-striped table-hover table-bordered">
                 <thead>
                     <tr scope='col'>
                         {/* <th scope="col">Id</th> */}

@@ -3,8 +3,7 @@ import Inicio from './components/Inicio';
 import Personaje from './components/Personaje';
 import Vista from './components/Vista';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
-import { UserPage } from './components/UserPage';
-import { UserNamePage } from './components/UserNamePage';
+
 
 function App() {
   const [verPer, setVerPer] = useState(false);
@@ -12,14 +11,14 @@ function App() {
 
   const Menu = () =>{
     return (
-    <nav class='nav'>
-      <button type="button" class="btn btn-primary"
+    <nav className='nav'>
+      <button type="button" className="btn btn-primary"
         onClick={()=>{
           setVerPer(!verPer);        
         }}
       >
       {verPer ? "Ocultar Lista" : "Ver lista"}</button>
-      <button type="button" class="btn btn-dark"
+      <button type="button" className="btn btn-dark"
         onClick={()=>{
           setVerPdf(!verPdf);
         }}
@@ -37,13 +36,9 @@ function App() {
         <Routes>
           {verPer ? <Route path='/'element ={<Inicio></Inicio>}></Route>: null}
           <Route path='/persona/:id'element={<Personaje></Personaje>}></Route>
-          {/* <Route path='/persona/:id'element={<Personaje></Personaje>}></Route> */}
         </Routes>
       </BrowserRouter>
       {verPdf ? <Vista/>: null}
-
-      {/* <UserPage/> */}
-
     </div>
   );
 }

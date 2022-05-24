@@ -15,7 +15,7 @@ const Personaje = () => {
             {persona != null ? (
                 <div>
                     <br/>
-                    <h7>Id: {params.id}</h7><br/>
+                    <p>Id: {params.id}</p>
                     <p>Nombre: {persona.given}</p>
                     <p>Apellido: {persona.family}</p>
                 </div>
