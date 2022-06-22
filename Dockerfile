@@ -1,22 +1,6 @@
-# pull the base image
-FROM node
-
-# set the working direction
+FROM node:12.18.1
 WORKDIR /app
-
-# add `/app/node_modules/.bin` to $PATH
-# ENV PATH /app/node_modules/.bin:$PATH
-ENV PATH /app/node_modules/.bin:${PATH}
-
-#install app dependencies
-COPY package.json ./
-
-COPY package-lock.json ./
-
+COPY ["package.json", "package-lock.json*", "./"]
 RUN npm install
-
-# add app
-COPY . ./
-
-# start app
+COPY . .
 CMD ["npm", "start"]

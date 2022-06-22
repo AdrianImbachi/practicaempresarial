@@ -1,15 +1,17 @@
 version: '3'
 services:
-  react-app:
-    container_name: react_app
-    build:
-      context: .
-      dockerfile: Dockerfile
-    environment:
-      - NODE_ENV=development
-    volumes:
-      - /pacientes
-    command: sh -c 'npm && npm start'
+  node:
+    restart: always
+    build: .
     ports:
-      - "3000:3000"  
-    tty: true
+      - 80:3000
+    volumes:
+      - ./:/code
+  mongo:
+    image: mongo
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb:/data/db
+volumes:
+ mongodb:
